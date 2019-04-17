@@ -73,7 +73,7 @@ const testData = [
 
 const CardList = (props) => (
     <div>
-        {testData.map(profile => <Card {...profile}/>)}
+        {props.profiles.map(profile => <Card {...profile}/>)}
     </div>
 )
 class Card extends Component {
@@ -94,13 +94,45 @@ class Card extends Component {
   }
 }
 
+class Form extends Component {
+
+  state = { userName: ''};
+
+  handleSubmit = (event) => {
+      event.preventDefault();
+      console.log(
+        this.state.userName
+      )
+  };
+
+  render(){
+    return(
+      <form onSubmit={this.handleSubmit}>
+      <input 
+      type="text" 
+      value={this.state.username}
+      onChange={event => this.setState({ userName: event.target.value})}
+      placeholder="Github username..."
+      required
+      />
+      <button>Add User</button>
+      </form>
+    )
+  }
+}
 class App extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      profiles: testData,
+    };
+  }
   render() {
     return (
       <div>
           <h1>Github Rolodex</h1>
-          <CardList
-           />
+          <Form />
+          <CardList profiles={this.state.profiles}/>
       </div>
     );
   }
