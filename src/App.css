@@ -1,0 +1,13 @@
+.profileCard {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid black;
+  width: 300px;
+  padding: 2px;
+}
+
+.profileDetails {
+  display: flex;
+  flex-direction: column;
+  margin-left: 15px;
+}
