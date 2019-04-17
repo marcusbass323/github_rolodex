@@ -18,12 +18,31 @@ class Card extends Component {
       <img alt="" src={profile.avatar_url}/>
       </div>
       <div className="profileDetails">
-      <h2>{profile.name}</h2>
+      <h3>{profile.name}</h3>
       <p>{profile.location}</p>
       <a href={profile.html_url} target="_blank"><p>{profile.login}</p></a>
       </div>
       </div>
       <strong>Bio:</strong> {profile.bio}
+
+      <div className="stats">
+        
+        <div className="stat">
+        <h5>Repos</h5>
+        <h2>{profile.public_repos}</h2> 
+        </div>
+
+        <div className="stat">
+          <h5>Followers</h5>         
+          <h2>{profile.followers}</h2>
+        </div>
+        
+        <div className="stat">
+          <h5>Following</h5>
+          <h2>{profile.following}</h2>
+        </div>
+
+      </div>
       </div>  
     )
   }
